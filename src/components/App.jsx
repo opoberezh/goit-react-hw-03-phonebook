@@ -7,6 +7,7 @@ import initialContacts from "./contactsList.json";
 export class App extends Component {
   state ={
     contacts: initialContacts,
+    initialContacts: initialContacts,
     contactFilter: '',
   };
 
@@ -31,9 +32,9 @@ componentDidUpdate(prevProps, prevState){
   }
 };
 
-resetChages = ()=>{
+resetChanges = ()=>{
   this.setState({
-    contacts: initialContacts,
+    contacts: this.state.initialContacts,
   })
 }
 // componentWillUnmount(){
@@ -57,6 +58,7 @@ resetChages = ()=>{
 
     this.setState(prevState => ({
       contacts: [...prevState.contacts, newItem],
+      initialContacts: [...prevState.initialContacts, newItem],
     }));
   };
 
@@ -85,7 +87,7 @@ resetChages = ()=>{
           contactFilter={contactFilter}
           onChangeFilter={this.changeContactFilter}
           onDeleteContact={this.deleteContact}
-          onReset={this.resetChages}
+          onReset={this.resetChanges}
         />
       </div>
     );
