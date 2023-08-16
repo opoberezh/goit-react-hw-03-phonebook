@@ -48,7 +48,7 @@ export const ContactForm = ({onAdd}) => {
     >
       {({ handleSubmit }) => (
         <Styleform onSubmit={handleSubmit}>
-          <HeroTitleStyled>{icon.phoneBook} Phonebooke</HeroTitleStyled>
+          <HeroTitleStyled>{icon.phoneBook} Phonebook</HeroTitleStyled>
           <StyledLabel>{icon.user} Name</StyledLabel>
           <StyledField name="name" />
           <ErrorMessage name="name" component={ErrorMessageStyled} />
