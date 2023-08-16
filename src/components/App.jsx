@@ -3,6 +3,9 @@ import { nanoid } from "nanoid";
 import { ContactForm } from "./ContactForm/ContactForm";
 import { ContactList } from "./ContactList/ContactList";
 import initialContacts from "./contactsList.json";
+import { Layout } from "./Layout/Layout";
+import { GlobalStyle } from "./GlobalStyled";
+import { WrapperContainer } from "./App.styled";
 
 export class App extends Component {
   state ={
@@ -80,7 +83,8 @@ resetChanges = ()=>{
       contact.name.toLowerCase().includes(contactFilter.toLowerCase())
     );
     return (
-      <div>
+      <Layout>
+        <WrapperContainer>
         <ContactForm onAdd={this.addContact} />
         <ContactList
           contacts={visibleContactItems}
@@ -89,7 +93,9 @@ resetChanges = ()=>{
           onDeleteContact={this.deleteContact}
           onReset={this.resetChanges}
         />
-      </div>
+        </WrapperContainer>
+        <GlobalStyle/>
+      </Layout>
     );
   };
 };
